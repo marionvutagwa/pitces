@@ -14,7 +14,7 @@ to sign in and log in and also view there profile.
 to comment on the pitch.
 to be able to submit a new pitch and submit in the category.
 Live Link
-https://sumeya.herokuapp.com/
+https://pitching-app.herokuapp.com/
 
 SetUp /Development Installation
 Requirements application installation:

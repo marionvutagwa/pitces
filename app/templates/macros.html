@@ -1,0 +1,28 @@
+({% macro displayPitches(all_pitches)%}
+{% for pitch in all_pitches %}
+<div class="row" >
+    <div class="col-md-4 card">
+        <h1>{{pitch.title}}</h1>
+        <p>{{pitch.category}}</p>
+        <h3>{{pitch.description}}</h3>
+        <p><strong>by:{{pitch.user.username}}</strong></p> 
+        <a href="{{url_for('main.comment',pitch_id=pitch.id)}}" class="btn btn-info">Comment</a>
+        <a href="{{url_for('main.upvote',pitch_id=pitch.id)}}"  class="fa fa-thumbs-up" style="color: darkblue;">Like</a>
+        <a href="{{url_for('main.downvote',pitch_id=pitch.id)}}"  class="fa fa-thumbs-down" style="color: red;">Dislike</a>
+
+    </div>
+
+</div>
+
+{% endfor %}
+
+{% endmacro %}
+
+<!-- {% macro displayComment(comment)%}  
+{% for comment in comments %}  
+<div class="row">
+    <p>{{comment.description}}</p>
+    <p>posted by {{comment.user.username}}</p>
+</div>
+{% endfor %}
+{% endmacro %} -->

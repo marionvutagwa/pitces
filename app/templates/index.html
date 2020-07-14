@@ -1,0 +1,47 @@
+{% extends 'base.html'%}
+{% import 'macros.html' as macro%}
+
+{% block content%}
+
+
+<div class="container">
+    <div class="card">
+    <div class="card-body">
+        <h1 class="header" style="text-align: center; background-color: chocolate;"> Welcome to one minute pitch </h1>
+
+    </div>
+    <a href="{{url_for('main.new_pitch')}}" class="btn btn-primary">Add pitch</a>
+
+ <!-- <ul class="nav">
+    <li class="nav-item">
+      <a class="nav-link " data-toggle="tab"  href="#business">business</a>
+    </li>  
+    <li class="nav-item">
+        <a class="nav-link " data-toggle="tab"  href="#job">job</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link " data-toggle="tab" href="#interview">interview</a>
+    </li>
+</ul>     -->
+<!-- {% if current_user.is_authenticated %}
+<a class="btn btn-success btn-lg text-center" href="{{url_for('main.new_pitch',id=current_user.id)}}"> NEW Pitch</a> 
+{% endif %}  -->
+<div class="row">
+    <div class="tab-content">
+        <div class="container" id="business">
+            {{macro.displayPitches(business)}}
+        </div>
+        <div class="container" id="job">
+            {{macro.displayPitches(job)}}
+        </div>
+        <div class="container" id="interview">
+            {{macro.displayPitches(interview)}}
+        </div>
+    </div>
+
+</div>
+
+
+</div>
+
+{% endblock %}

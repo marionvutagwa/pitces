@@ -1,0 +1,42 @@
+{% extends 'base.html'%}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% block content%}
+
+<!-- <div>
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">Pitch</div>
+            {% macro displayPitches(all_pitches)%}
+                {% for pitch in all_pitches %}
+            <div class="panel-body">
+                <h3>{{{pitch.title}}</p>
+                <p>{{pitch.description}}</p>
+                <p><strong>by: {{ pitch.user.username }}</strong></p>
+                <p>{{pitch.time}}</p>
+                <a href="{{url_for('main.comment',pitch_id=pitch.id)}}" class="btn btn-primary">Comment</a>
+                <a href="{{url_for('main.upvote',pitch_id=pitch.id)}}"  class="fa fa-thumbs-up" >Like</a>
+                <a href="{{url_for('main.downvote',pitch_id=pitch.id)}}"  class="fa fa-thumbs-down" >Dislike</a>
+            </div>
+        </div>
+        <div>
+            {% for comment in comments %}
+            <div class="panel panel-default">
+                <div class="panel-body">
+                <p>Comment By:{{ comment.user.username }}</p>
+                <p>{{ comment.comment }}</p>
+            </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div> -->
+    <div class="col-md-4">
+        
+        <!-- <form action="/pitchdiscussion/{{pitch.id}}/comment" method="post">
+           <div class="form-group">
+               <input type="text" name="comment" class="form-control">
+               <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+            </div> 
+        </form> -->
+    </div>
+</div>
+{% endblock %}

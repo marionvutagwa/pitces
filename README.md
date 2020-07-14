@@ -1,22 +1,23 @@
-Pitch
+**Pitch**
 
-Author
+**Author**
 Marion
 
-Description
+**Description**
 This is a flask application that allow users to post the pitch in a minute and allow a user and sign up and login to the comment and like and dislke the pitch.
 
-User Stories
+**User Stories**
 As user i would like:
 
 to view on other pitch in the categories.
 to sign in and log in and also view there profile.
 to comment on the pitch.
 to be able to submit a new pitch and submit in the category.
-Live Link
+
+**Live Link**
 https://pitching-app.herokuapp.com/
 
-SetUp /Development Installation
+**SetUp /Development Installation**
 Requirements application installation:
 
 pip freeze 
@@ -36,20 +37,21 @@ sudo pip3 install virtualenv
 virtualenv venv
 
 source venv/bin/activate
-Technology Used
+
+**Technology Used**
 Python3.6
 Bootstrap
 Css
 Flask
 Heroku
 
-Known Bugs
+**Known Bugs**
 they are no bugs
 
-Contact Information
+**Contact Information**
 Any feedback contact this email marionvutagwa8@gmail.com
 
-LICENSE
+**LICENSE**
 MIT License
 
 Copyright (c) [2020] [Marion Vutagwa]

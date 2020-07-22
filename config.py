@@ -3,7 +3,7 @@ import os
 class Config:
     
     SECRET_KEY = os.environ.get('SECRET_KEY')
-    # SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://mia:newPass@localhost/pitch'
+    # SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://marion:mami@localhost/pitches'
     UPLOADED_PHOTOS_DEST ='app/static/photos'
     
     #  email configurations
@@ -12,7 +12,7 @@ class Config:
     MAIL_USE_TLS = True
     MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
     MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
-    SENDER_EMAIL = 'marionhassan34@gmail.com'
+    SENDER_EMAIL = 'marionvutagwa8@gmail.com'
 
     # simple mde  configurations
     SIMPLEMDE_JS_IIFE = True
@@ -20,3 +20,20 @@ class Config:
     @staticmethod
     def init_app(app):
         pass
+
+
+
+
+class ProdConfig(Config):
+    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
+    # pass
+
+
+class DevConfig(Config):
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://marion:mami@localhost/pitches'
+    DEBUG = True
+
+config_options = {
+'development':DevConfig,
+'production':ProdConfig
+}

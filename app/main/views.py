@@ -4,7 +4,6 @@ from .forms import UpdateProfile,PitchForm,CommentForm
 from flask_login import login_required,current_user
 from .. import db,photos
 from ..models import User,Pitch,Comment,UpVote,DownVote
-import markdown2
 
 
 

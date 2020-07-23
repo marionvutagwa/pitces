@@ -26,7 +26,7 @@ class User(UserMixin,db.Model):
     password_hash = db.Column(db.String(255))
 
     #relation
-    pitches = db.relationship('Pitch',backref = 'user',lazy = "dynamic")
+    pitch = db.relationship('Pitch',backref = 'user',lazy = "dynamic")
     comment = db.relationship('Comment',backref = 'user',lazy = "dynamic") 
     upvote = db.relationship('UpVote',backref = 'user',lazy = "dynamic") 
     downvote = db.relationship('DownVote',backref = 'user',lazy = "dynamic") 
@@ -61,7 +61,7 @@ class Role(db.Model):
 
 class Pitch(db.Model):
 
-    __tablename__ = 'pitches'
+    __tablename__ = 'pitch'
 
     id = db.Column(db.Integer,primary_key = True)
     title = db.Column(db.String)
@@ -80,11 +80,11 @@ class Pitch(db.Model):
 
     @classmethod
     def get_pitch(cls,category):
-        pitches = Pitch.query.filter_by(category=category).all()
+        pitch = Pitch.query.filter_by(category=category).all()
         return pitches  
           
-    # def __repr__(self):
-    #     return f"Pitch ('{self.id}','{self.time}')"   
+    def __repr__(self):
+        return f"Pitch ('{self.id}','{self.time}')"   
 
 
 class Comment(db.Model):
@@ -92,7 +92,7 @@ class Comment(db.Model):
 
     id = db.Column(db.Integer,primary_key = True)
     description = db.Column(db.String)   
-    pitch_id = db.Column(db.Integer,db.ForeignKey("pitches.id"),nullable = False)
+    pitch_id = db.Column(db.Integer,db.ForeignKey("pitch.id"),nullable = False)
     user_id = db.Column(db.Integer,db.ForeignKey("users.id"),nullable = False)
    
     def save_comment(self):
@@ -110,7 +110,7 @@ class Comment(db.Model):
 class UpVote(db.Model):
     __tablename__ = 'upvotes'        
     id = db.Column(db.Integer,primary_key = True)
-    pitch_id = db.Column(db.Integer,db.ForeignKey("pitches.id"))
+    pitch_id = db.Column(db.Integer,db.ForeignKey("pitch.id"))
     user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
     upvote = db.Column(db.Integer, default= 1)
 
@@ -132,7 +132,7 @@ class DownVote(db.Model):
     __tablename__ = 'downvotes'
 
     id = db.Column(db.Integer,primary_key = True)
-    pitch_id = db.Column(db.Integer,db.ForeignKey("pitches.id"))
+    pitch_id = db.Column(db.Integer,db.ForeignKey("pitch.id"))
     user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
     downvote = db.Column(db.Integer, default= 1)
 
